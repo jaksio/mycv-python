@@ -35,6 +35,7 @@ def draw_number(board: list, user_number: int, rows: int, columns: int):
     x = border + (rows*rec_size) + (rec_size / 3)
     y = border + (columns*rec_size) + (rec_size / 4)
     gameDisplay.blit(textsurface, (x, y))
+    pygame.display.update()
     return board
 
 
@@ -92,6 +93,17 @@ def to_columns(x: int, y: int):
     column = max(0, min(column, 8))
 
     return (int(row), int(column))
+
+
+def clear_rec_by_cols(board: list, a: int, b: int) -> None:
+    '''clears rectangle based on columns on screen'''
+
+    myRec = pygame.Rect(
+        border+(a*rec_size), border+(b*rec_size), rec_size, rec_size)
+
+    pygame.draw.rect(gameDisplay, black, myRec)
+    pygame.draw.rect(gameDisplay, white, myRec, 2)
+    board[a][b] = 0
 
 
 def clear_rec(board: list, x: int, y: int, not_delete: list) -> list:
