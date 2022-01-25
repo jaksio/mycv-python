@@ -1,0 +1,28 @@
+#:kivy 2.0
+<MyGrid>:
+
+    phone_numbers: phone_numbers
+
+    GridLayout:
+        cols: 1
+        size: root.width * (9/10), root.height * (9/10)
+        pos: root.width * (5/100), root.height * (5/100)
+
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Wyślij wiele SMS"
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Wklej numery tutaj:"
+
+            TextInput:
+                id: phone_numbers
+                multiline: True
+        
+        Button:
+            text: "Wyślij"
+            on_press: root.btn()
