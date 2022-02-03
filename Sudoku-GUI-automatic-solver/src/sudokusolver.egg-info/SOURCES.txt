@@ -1,0 +1,11 @@
+pyproject.toml
+setup.cfg
+setup.py
+src/sudokusolver/solver.py
+src/sudokusolver/sudoku.py
+src/sudokusolver.egg-info/PKG-INFO
+src/sudokusolver.egg-info/SOURCES.txt
+src/sudokusolver.egg-info/dependency_links.txt
+src/sudokusolver.egg-info/not-zip-safe
+src/sudokusolver.egg-info/requires.txt
+src/sudokusolver.egg-info/top_level.txt
