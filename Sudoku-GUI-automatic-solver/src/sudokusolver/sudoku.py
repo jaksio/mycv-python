@@ -33,7 +33,7 @@ def draw_board():
             pygame.display.flip()
 
 
-def draw_number(board: list[list[int]], user_number: int, rows: int, columns: int):
+def draw_number(board: list[list[int]], user_number: int, rows: int, columns: int) -> list[list[int]]:
     """draws number in right rectangle"""
     textsurface = myfont.render(str(user_number), False, white)
     board[rows][columns] = int(user_number)
@@ -54,8 +54,9 @@ def fill_board(board: list[list[int]]):
                 user_number = randrange(1, 10)
                 a = (i * 3) + randrange(0, 3)
                 b = (j * 3) + randrange(0, 3)
-                not_deletable.append((a, b))
                 is_valid = check_number(board, user_number, a, b)
+                if is_valid is True:
+                    not_deletable.append((a, b))
             board = draw_number(board, user_number, a, b)
 
     return board, not_deletable
@@ -135,9 +136,9 @@ def clear_rec(
 
 def check_limit(x, y):
     """Checks limit of posible rectangle highliting"""
-    if x < 50 or x > (rec_size * 8) + border:
+    if x < border or x > (rec_size * 8) + border:
         return False
-    elif y < 50 or y > (rec_size * 8) + border:
+    elif y < border or y > (rec_size * 8) + border:
         return False
     return True
 
@@ -155,7 +156,7 @@ def select_rectangle(x: int, y: int, prev_color: str, prev_position):
         x - ((x - border) % rec_size), y - ((y - border) % rec_size), rec_size, rec_size
     )
 
-    # checks if position is on board
+    # checks if position is on board limit
     if check_limit(x, y) is False:
         return prev_color, prev_position
 
@@ -176,6 +177,7 @@ def select_rectangle(x: int, y: int, prev_color: str, prev_position):
 
 
 def main():
+    ''' main function'''
     crashed = False
 
     draw_board()

@@ -1,6 +1,7 @@
 pyproject.toml
 setup.cfg
 setup.py
+src/sudokusolver/py.typed
 src/sudokusolver/solver.py
 src/sudokusolver/sudoku.py
 src/sudokusolver.egg-info/PKG-INFO
