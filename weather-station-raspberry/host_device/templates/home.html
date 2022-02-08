@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="header">
+      <h1>Witaj w panelu urządzenia!</h1>
+    </div>
+
+      <button class="button" onclick="window.location.href='{{ url_for('temperatura') }}'"><span>Temperatura</span></button>
+      <button class="button" onclick="window.location.href='{{ url_for('wilgotnosc') }}'"><span>Wilgotność</span></button>
+      <button class="button" onclick="window.location.href='{{ url_for('cisnienie') }}'"><span>Cisnienie</span></button>
+      <button class="button" onclick="window.location.href='{{ url_for('pm25') }}'"><span>PM2.5</span></button>
+      <button class="button" onclick="window.location.href='{{ url_for('pm10') }}'"><span>PM10</span></button>
+
+<TABLE BORDER="5"    WIDTH="100%"   CELLPADDING="4" CELLSPACING="3">
+    <TR>
+      <TH COLSPAN="3">
+         <H3><BR>Aktualne pomiary w pokoju:</H3>
+      </TH>
+   </TR>
+   <TR>
+      <TH>Temperatura [°C]</TH>
+      <TH>Wilgotność [%]</TH>
+      <TH>Ciśnienie [hPa]</TH>
+   </TR>
+   <TR ALIGN="CENTER">
+   {% for item in data[1:4] %}
+    <TD> {{item}} </TD>
+    {% endfor %}
+   </TR>
+</TABLE>
+
+
+<TABLE BORDER="5"    WIDTH="100%"   CELLPADDING="4" CELLSPACING="3">
+    <TR>
+      <TH COLSPAN="5">
+         <H3><BR>Aktualne pomiary na zewnątrz:</H3>
+      </TH>
+   </TR>
+   <TR>
+      <TH>Temperatura [°C]</TH>
+      <TH>Wilgotność [%]</TH>
+      <TH>Ciśnienie [hPa]</TH>
+      <TH>PM 2.5 [µg/m3]</TH>
+      <TH>PM 10 [µg/m3]</TH>
+   </TR>
+   <TR ALIGN="CENTER">
+   {% for item in data1[1:6] %}
+    <TD> {{item}} </TD>
+    {% endfor %}
+   </TR>
+</TABLE>
+
+{% endblock content %}

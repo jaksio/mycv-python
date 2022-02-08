@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.header {
+  background-color: #F1F2F1;
+  text-align: center;
+  padding: 10px;
+  border: solid 2px #000;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+  border: solid 2px #000;
+}
+
+.button {
+  display: block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: auto;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+body {
+  background: #f1f1f1;
+  }
+
+</style>
+</head>
+<body>
+{% block content %}{% endblock %}
+    <div class="footer">
+    <p>Jakub Sioła - projekt inżynierski</p>
+    </div>
+</body>
+</html>
+
